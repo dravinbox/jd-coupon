@@ -87,6 +87,13 @@
             <version>2.7.0</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>nexus-daocloud</id>
+            <name>Nexus daocloud</name>
+            <url>http://nexus.daocloud.io/repository/maven-public/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
