@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: jd-coupon
+  datasource:
+    name: test
+    url: jdbc:mysql://120.79.88.212:3306/jdcoupon?characterEncoding=utf8&useSSL=true
+    username: root
+    password: 123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+#数据库连接信息
+#  datasource:
+#    name: test
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    druid:
+#      driver-class-name: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://120.79.88.212:3306/jdcoupon?characterEncoding=utf8&useSSL=true
+#      username: root
+#      password: 123456
+
+## 该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
+mybatis:
+#注意：一定要对应mapper映射xml文件的所在路径
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 注意：对应实体类的路径
+  type-aliases-package: com.hot.bean
+server:
+  port: 8080
+#swagger2.package: cn.gzrrg.bean
+
